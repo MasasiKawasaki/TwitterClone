@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/kawasakimasasi/Desktop/TwitterClone/TwitterClone/TwitterClone/Constants.swift .swift">
+   </FileRef>
+   <FileRef
       location = "group:TwitterClone.xcodeproj">
    </FileRef>
    <FileRef

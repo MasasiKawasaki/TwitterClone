@@ -10,7 +10,34 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, World!")
+       TabView {
+        FeedView()
+        
+               .tabItem {
+                   Image(systemName: "house")
+                   Text("Home")
+               }
+           Text("検索画面")
+               .tabItem {
+                   Image(systemName: "magnifyingglass")
+                   Text("Search")
+               }
+                   
+           Text("通知画面")
+               .tabItem {
+                   Image(systemName: "bell")
+                   Text("Notifications")
+               }
+                   
+           Text("チャット画面")
+               .tabItem {
+                   Image(systemName: "envelope")
+                   Text("Messages")
+           }
+       }
+       .accentColor(.blue)
+       .edgesIgnoringSafeArea(.top)
+        
     }
 }
 

@@ -3,11 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		6520985092C57DF6F7B2CAF8 /* Pods_TwitterClone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCE8E3765E3AC70933E7D4AD /* Pods_TwitterClone.framework */; };
+		C42DAB8323D8CDEC0056BDDC /* ProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42DAB8223D8CDEC0056BDDC /* ProfileImageView.swift */; };
+		C42DAB8523D8CE330056BDDC /* PostRowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42DAB8423D8CE330056BDDC /* PostRowButton.swift */; };
+		C42DAB8723D8DAC70056BDDC /* PostRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42DAB8623D8DAC70056BDDC /* PostRow.swift */; };
+		C42DAB8923D8E31F0056BDDC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42DAB8823D8E31F0056BDDC /* Constants.swift */; };
 		C4ABB85223D7897D00631BC5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4ABB85123D7897D00631BC5 /* AppDelegate.swift */; };
 		C4ABB85423D7897D00631BC5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4ABB85323D7897D00631BC5 /* SceneDelegate.swift */; };
 		C4ABB85623D7897D00631BC5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4ABB85523D7897D00631BC5 /* ContentView.swift */; };
@@ -15,11 +19,18 @@
 		C4ABB85B23D7898200631BC5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4ABB85A23D7898200631BC5 /* Preview Assets.xcassets */; };
 		C4ABB85E23D7898200631BC5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4ABB85C23D7898200631BC5 /* LaunchScreen.storyboard */; };
 		C4ABB86623D78CEC00631BC5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C4ABB86523D78CEB00631BC5 /* GoogleService-Info.plist */; };
+		C4ABB86A23D7955500631BC5 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4ABB86923D7955500631BC5 /* FeedView.swift */; };
+		C4ABB86C23D7A73D00631BC5 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4ABB86B23D7A73D00631BC5 /* Post.swift */; };
+		C4ABB87023D7AB6200631BC5 /* PostStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4ABB86F23D7AB6200631BC5 /* PostStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		32507641DD6D3EFF13D000C7 /* Pods-TwitterClone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwitterClone.debug.xcconfig"; path = "Target Support Files/Pods-TwitterClone/Pods-TwitterClone.debug.xcconfig"; sourceTree = "<group>"; };
 		6BCDF762CD700DC4F249218C /* Pods-TwitterClone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwitterClone.release.xcconfig"; path = "Target Support Files/Pods-TwitterClone/Pods-TwitterClone.release.xcconfig"; sourceTree = "<group>"; };
+		C42DAB8223D8CDEC0056BDDC /* ProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageView.swift; sourceTree = "<group>"; };
+		C42DAB8423D8CE330056BDDC /* PostRowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRowButton.swift; sourceTree = "<group>"; };
+		C42DAB8623D8DAC70056BDDC /* PostRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRow.swift; sourceTree = "<group>"; };
+		C42DAB8823D8E31F0056BDDC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C4ABB84E23D7897D00631BC5 /* TwitterClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4ABB85123D7897D00631BC5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C4ABB85323D7897D00631BC5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -29,6 +40,9 @@
 		C4ABB85D23D7898200631BC5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C4ABB85F23D7898200631BC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C4ABB86523D78CEB00631BC5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C4ABB86923D7955500631BC5 /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
+		C4ABB86B23D7A73D00631BC5 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		C4ABB86F23D7AB6200631BC5 /* PostStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostStore.swift; sourceTree = "<group>"; };
 		CCE8E3765E3AC70933E7D4AD /* Pods_TwitterClone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TwitterClone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -76,11 +90,18 @@
 				C4ABB85123D7897D00631BC5 /* AppDelegate.swift */,
 				C4ABB85323D7897D00631BC5 /* SceneDelegate.swift */,
 				C4ABB85523D7897D00631BC5 /* ContentView.swift */,
+				C4ABB86B23D7A73D00631BC5 /* Post.swift */,
+				C4ABB86F23D7AB6200631BC5 /* PostStore.swift */,
+				C42DAB8223D8CDEC0056BDDC /* ProfileImageView.swift */,
+				C42DAB8423D8CE330056BDDC /* PostRowButton.swift */,
+				C4ABB86923D7955500631BC5 /* FeedView.swift */,
+				C42DAB8623D8DAC70056BDDC /* PostRow.swift */,
 				C4ABB85723D7898200631BC5 /* Assets.xcassets */,
 				C4ABB85C23D7898200631BC5 /* LaunchScreen.storyboard */,
 				C4ABB86523D78CEB00631BC5 /* GoogleService-Info.plist */,
 				C4ABB85F23D7898200631BC5 /* Info.plist */,
 				C4ABB85923D7898200631BC5 /* Preview Content */,
+				C42DAB8823D8E31F0056BDDC /* Constants.swift */,
 			);
 			path = TwitterClone;
 			sourceTree = "<group>";
@@ -99,7 +120,6 @@
 				32507641DD6D3EFF13D000C7 /* Pods-TwitterClone.debug.xcconfig */,
 				6BCDF762CD700DC4F249218C /* Pods-TwitterClone.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -219,9 +239,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C42DAB8323D8CDEC0056BDDC /* ProfileImageView.swift in Sources */,
+				C4ABB86A23D7955500631BC5 /* FeedView.swift in Sources */,
+				C42DAB8723D8DAC70056BDDC /* PostRow.swift in Sources */,
+				C4ABB87023D7AB6200631BC5 /* PostStore.swift in Sources */,
 				C4ABB85223D7897D00631BC5 /* AppDelegate.swift in Sources */,
+				C42DAB8923D8E31F0056BDDC /* Constants.swift in Sources */,
 				C4ABB85423D7897D00631BC5 /* SceneDelegate.swift in Sources */,
 				C4ABB85623D7897D00631BC5 /* ContentView.swift in Sources */,
+				C42DAB8523D8CE330056BDDC /* PostRowButton.swift in Sources */,
+				C4ABB86C23D7A73D00631BC5 /* Post.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,6 +387,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"TwitterClone/Preview Content\"";
+				DEVELOPMENT_TEAM = HPSXDD3MCW;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = TwitterClone/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -380,6 +408,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"TwitterClone/Preview Content\"";
+				DEVELOPMENT_TEAM = HPSXDD3MCW;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = TwitterClone/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
