@@ -9,4 +9,8 @@ target 'TwitterClone' do
   pod 'Firebase/Core'
   pod 'Firebase/Firestore'
   pod 'Kingfisher/SwiftUI'
+  pod 'Firebase/Storage'
+  pod 'Firebase/Auth'
+
+
 end

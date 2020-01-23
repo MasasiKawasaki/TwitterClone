@@ -8,6 +8,7 @@
 
 import Foundation
 
+
 struct Constants {
     //Firestore: CollectionName
     static let posts = "posts"
@@ -18,5 +19,8 @@ struct Constants {
     static let tag = "tag"
     static let likesNume = "likesNum"
     static let commentsNume = "commentsNum"
+    static let postImage = "postImage"
+    
+    static let pics = "pics"
     
 }
