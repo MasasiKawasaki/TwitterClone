@@ -17,6 +17,7 @@ class PostStore: ObservableObject{
     
     @Published var posts = [Post]()
 //    これからまだ入るデータがあるからPostで定義する
+    
     func fetch(){
         db.collection(Constants.posts).addSnapshotListener()
             {  (querySnapshot, error)
@@ -36,6 +37,7 @@ class PostStore: ObservableObject{
                         guard let _postImage = data[Constants.postImage] as? String else{return}
                         
                         let post = Post(id: _id, text: _text, username: _username, tag: _tag, commentsNum: _commentsNum, likesNum: _likesNum, postImage: _postImage)
+                            
 //                            Postの順番に作らないといけない
 //                            if let を使うときなどに＿を使う
                         DispatchQueue.main.async{
@@ -68,31 +70,27 @@ class PostStore: ObservableObject{
        print("投稿成功！")
    }
     
-    func uploadToStorage(picData: Data, completion: @escaping (String) -> Void) {
-        
-        let imageName = UUID().uuidString
-        let metaData = StorageMetadata()
-        metaData.contentType = "image/jpeg"
-        
-        let imageRef = storageRef.child(Constants.pics).child("\(imageName).jpg")
-        imageRef.putData(picData, metadata: metaData){ (metaData, error) in
-            if error != nil {
-                print(error?.localizedDescription ?? "nil")
-                return
-            }
-        
-            imageRef.downloadURL { (url, error) in
-                guard let downloadURL = url?.absoluteString else {
-                    print(error?.localizedDescription ?? "")
+    func uploadToStorage(picData: Data, completion: @escaping (String) -> Void)  {
+        if !picData.isEmpty {
+            let imageName = UUID().uuidString
+            let metaData = StorageMetadata()
+            metaData.contentType = "image/jpeg"
+            let imageRef = storageRef.child(Constants.pics).child("\(imageName).jpg")
+            imageRef.putData(picData, metadata: metaData) { (metadata, error) in
+                if error != nil {
+                    print(error?.localizedDescription ?? "nil")
                     return
                 }
-            completion(downloadURL)
-            
+                imageRef.downloadURL { (url, error) in
+                    guard let downloadURL = url?.absoluteString else {
+                        print(error?.localizedDescription ?? "")
+                        return
+                    }
+                    completion((downloadURL))
+                }
             }
-        
+        } else {
+            completion((""))
         }
-        
     }
-    
-    
 }

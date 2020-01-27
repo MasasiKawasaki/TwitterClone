@@ -10,12 +10,33 @@ import SwiftUI
 
 struct LoginView: View {
     
-    @State var mailaddress: String = ""
+    @State var showModal: Bool = false
+    
+    @State var showAlert = false
+    @State var isError: Bool = false
+    @State var errorText: String = ""
+    
+    @State var email: String = ""
     @State var password: String = ""
     @State var username: String = ""
     
+    @EnvironmentObject var userStore: UserStore
+    
+    func signIn() {
+        userStore.signIn(email: email, password: password) { (result, error) in
+            if error != nil {
+                self.isError.toggle()
+                self.errorText = error?.localizedDescription ?? "nil"
+                print(error?.localizedDescription ?? "nil")
+            } else {
+                self.email = ""
+                self.password = ""
+            }
+        }
+    }
+    
     var body: some View {
-        NavigationView{
+//        NavigationView{
         ZStack {
             Color.red.edgesIgnoringSafeArea(.all)
             VStack{
@@ -29,7 +50,7 @@ struct LoginView: View {
                 Text("⚽️ログイン情報⚽️")
                 .fontWeight(.heavy)
                 .font(.title)
-                TextField("メールアドレス", text: $mailaddress)
+                TextField("メールアドレス", text: $email)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding()
 //                Text(mailaddress)
@@ -38,20 +59,48 @@ struct LoginView: View {
                 .padding()
 //                Text(password)
 //                Spacer()
-                NavigationLink(destination: SignupView()){
-                Text("新規登録はこちら")
+                Button(action: {
+                    print("Button tapped")
+                    if self.email.isEmpty {
+                        self.isError.toggle()
+                        self.errorText = "メールアドレスが入力されていません"
+                    } else if self.password.isEmpty {
+                        self.isError.toggle()
+                        self.errorText = "パスワードが入力されていません"
+                    } else {
+                        self.signIn()
+                    }
+                },label: {Text("ログイン")
                     .foregroundColor(.white)
                     .fontWeight(.heavy)
                     .font(.title)
                     .frame(width:330, height: 80)
                     .background(Color.black)
                     .cornerRadius(12)
-                    .offset(y: 20)
-                }.navigationBarTitle(Text("ログイン"))
+                }
+            )
+                Button(action: {
+                    // action
+                    self.showModal.toggle()
+                },label: { Text("新規登録はこちら")
+                    .foregroundColor(.white)
+                    .fontWeight(.heavy)
+                    .font(.title)
+                    .frame(width:330, height: 80)
+                    .background(Color.black)
+                    .cornerRadius(12)}
+                ).offset(y:20)
+//                    Text("Don't have an account? Sign up)
+                //                }
+            .navigationBarTitle(Text("ログイン"))
                 Spacer()
-                
-            }
+//            }
         }
+        }.alert(isPresented: $isError, content: {
+                Alert(title: Text("エラー"), message: Text(self.errorText), dismissButton: .default(Text("OK")))
+            })
+            .sheet(isPresented: self.$showModal) {
+                SignupView().environmentObject(self.userStore)
         }
     }
 }

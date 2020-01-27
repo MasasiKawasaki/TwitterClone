@@ -10,6 +10,7 @@ import SwiftUI
 import Firebase
 import struct Kingfisher.KFImage
 struct FeedView: View {
+    @EnvironmentObject var userStore: UserStore
     
     @ObservedObject var postStore = PostStore()
     @State private var showModal = false
@@ -21,14 +22,11 @@ struct FeedView: View {
                         PostRow(post: post)
                     }
                 }
-               
                 VStack{
                     Spacer()
                     HStack{
                         Spacer()
-                        Button(action:{self.showModal = true}
-        )
-                            
+                        Button(action:{self.showModal = true})
                         {Image(systemName: "square.and.pencil")
                             .resizable()
                             .frame(width: 20, height: 20)
@@ -43,11 +41,13 @@ struct FeedView: View {
             .navigationBarTitle("Home")
             .navigationBarItems(trailing: Button(action: {
                 print("ログアウトメソッド")
+                self.userStore.signOut()
             }) {
                 Text("Sign Out")
             })
         }.sheet(isPresented: self.$showModal){
             CreatePost()
+            .environmentObject(self.userStore)
         }
         .onAppear(perform: {
             self.postStore.posts.removeAll()

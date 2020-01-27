@@ -18,6 +18,8 @@
 		C42DAB9D23DA49A30056BDDC /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42DAB9C23DA49A30056BDDC /* SplashView.swift */; };
 		C42DAB9F23DA4B4D0056BDDC /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42DAB9E23DA4B4D0056BDDC /* LoginView.swift */; };
 		C42DABA123DA4B670056BDDC /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42DABA023DA4B670056BDDC /* SignupView.swift */; };
+		C42DABA323DB777E0056BDDC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42DABA223DB777E0056BDDC /* User.swift */; };
+		C42DABA523DB787B0056BDDC /* UserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42DABA423DB787B0056BDDC /* UserStore.swift */; };
 		C4ABB85223D7897D00631BC5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4ABB85123D7897D00631BC5 /* AppDelegate.swift */; };
 		C4ABB85423D7897D00631BC5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4ABB85323D7897D00631BC5 /* SceneDelegate.swift */; };
 		C4ABB85623D7897D00631BC5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4ABB85523D7897D00631BC5 /* ContentView.swift */; };
@@ -43,6 +45,8 @@
 		C42DAB9C23DA49A30056BDDC /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		C42DAB9E23DA4B4D0056BDDC /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		C42DABA023DA4B670056BDDC /* SignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
+		C42DABA223DB777E0056BDDC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		C42DABA423DB787B0056BDDC /* UserStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStore.swift; sourceTree = "<group>"; };
 		C4ABB84E23D7897D00631BC5 /* TwitterClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4ABB85123D7897D00631BC5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C4ABB85323D7897D00631BC5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -99,6 +103,8 @@
 			isa = PBXGroup;
 			children = (
 				C4ABB86B23D7A73D00631BC5 /* Post.swift */,
+				C42DABA223DB777E0056BDDC /* User.swift */,
+				C42DABA423DB787B0056BDDC /* UserStore.swift */,
 				C42DAB9823DA24F50056BDDC /* View */,
 			);
 			path = Model;
@@ -297,6 +303,7 @@
 				C42DAB8723D8DAC70056BDDC /* PostRow.swift in Sources */,
 				C4ABB87023D7AB6200631BC5 /* PostStore.swift in Sources */,
 				C4ABB85223D7897D00631BC5 /* AppDelegate.swift in Sources */,
+				C42DABA323DB777E0056BDDC /* User.swift in Sources */,
 				C42DAB8923D8E31F0056BDDC /* Constants.swift in Sources */,
 				C42DAB8B23D8FEA50056BDDC /* CreatePost.swift in Sources */,
 				C4ABB85423D7897D00631BC5 /* SceneDelegate.swift in Sources */,
@@ -304,6 +311,7 @@
 				C42DAB8D23D900EC0056BDDC /* TextView.swift in Sources */,
 				C42DABA123DA4B670056BDDC /* SignupView.swift in Sources */,
 				C42DAB8523D8CE330056BDDC /* PostRowButton.swift in Sources */,
+				C42DABA523DB787B0056BDDC /* UserStore.swift in Sources */,
 				C4ABB86C23D7A73D00631BC5 /* Post.swift in Sources */,
 				C42DAB9D23DA49A30056BDDC /* SplashView.swift in Sources */,
 			);

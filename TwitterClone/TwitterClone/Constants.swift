@@ -12,6 +12,13 @@ import Foundation
 struct Constants {
     //Firestore: CollectionName
     static let posts = "posts"
+    
+    static let users = "users"
+
+    static let userId = "userId"
+    static let email = "email"
+    static let name = "username"
+    
     //Firestore: FieldName
     static let id = "id"
     static let text = "text"

@@ -11,17 +11,20 @@ import SwiftUI
 struct SplashView: View {
     
     @State var isLogin: Bool = false
+     @EnvironmentObject var userStore: UserStore
     
+    func getUser(){
+        userStore.listen()
+    }
     
     var body: some View {
         Group {
-            if isLogin {
+              if(userStore.user != nil) {
                 ContentView()
             } else {
                 LoginView()
             }
-        }
-        
+        }.onAppear(perform: getUser)
     }
 }
 

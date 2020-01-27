@@ -14,6 +14,7 @@ struct CreatePost: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State var showImagePicker = false
     @State var picData: Data = .init(count: 0)
+    @EnvironmentObject var userStore: UserStore
     
     var body: some View {
         VStack{
@@ -36,10 +37,11 @@ struct CreatePost: View {
             }
             Button(action: {
                     print("投稿ボタンタップ")
-                
                 self.postStore.uploadToStorage(picData: self.picData) { url in
-                let post = Post(id: NSUUID().uuidString, text: self.txt, username: "G's seattle", tag: "@novel", commentsNum: 5, likesNum: 32, postImage: url)
+                    let post = Post(id: NSUUID().uuidString, text: self.txt, username: "G's seattle", tag: self.userStore.user?.uid ?? "", commentsNum: 5, likesNum: 32, postImage: url)
+//                   \は文字列の中に変数を入れるとき
                     self.postStore.post(post: post)
+                    
                 }
                 self.presentationMode.wrappedValue.dismiss()
                 }) {
@@ -59,7 +61,6 @@ struct CreatePost: View {
             ImagePicker(picker: self.$showImagePicker, picData: self.$picData)
             }
         .padding()
-        
     }
 }
 

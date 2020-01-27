@@ -17,6 +17,7 @@ struct PostRow: View {
             return false
         }
     }
+    
     var body: some View {
         VStack(alignment: .leading){
             HStack(alignment: .top) {
@@ -25,7 +26,9 @@ struct PostRow: View {
                     HStack {
                         Text(post.username)
                             .fontWeight(.bold)
-                        Text(post.tag)
+                        
+                        Text("@\(post.tag)")
+//                        Text(userStore.userId)
                             .foregroundColor(.gray)
                     }
                     Text(post.text)
