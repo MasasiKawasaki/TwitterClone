@@ -37,7 +37,7 @@ struct CreatePost: View {
             }
             Button(action: {
                     print("投稿ボタンタップ")
-                self.postStore.uploadToStorage(picData: self.picData) { url in
+                    self.postStore.uploadToStorage(picData: self.picData) { url in
                     let post = Post(id: NSUUID().uuidString, text: self.txt, username: "G's seattle", tag: self.userStore.user?.uid ?? "", commentsNum: 5, likesNum: 32, postImage: url)
 //                   \は文字列の中に変数を入れるとき
                     self.postStore.post(post: post)
@@ -56,6 +56,14 @@ struct CreatePost: View {
         Divider()
         TextView(text: $txt)
         Spacer()
+//            VStack{
+//            Spacer()
+            HStack{
+                Spacer()
+                BannerAdView()
+                Spacer()
+            }
+//                }
         }
         .sheet(isPresented: $showImagePicker) {
             ImagePicker(picker: self.$showImagePicker, picData: self.$picData)
@@ -64,8 +72,8 @@ struct CreatePost: View {
     }
 }
 
-struct CreatePost_Previews: PreviewProvider {
-    static var previews: some View {
-        CreatePost()
-    }
-}
+//struct CreatePost_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CreatePost()
+//    }
+//}

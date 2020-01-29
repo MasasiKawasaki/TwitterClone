@@ -21,7 +21,7 @@ struct FeedView: View {
                     ForEach(postStore.posts, id: \.id){ post in
                         PostRow(post: post)
                     }
-                }
+                }.buttonStyle(PlainButtonStyle())
                 VStack{
                     Spacer()
                     HStack{

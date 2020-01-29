@@ -19,7 +19,8 @@ struct PostRow: View {
     }
     
     var body: some View {
-        VStack(alignment: .leading){
+        NavigationLink(destination: CommentView(post: post)) {
+            VStack(alignment: .leading){
             HStack(alignment: .top) {
                 ProfileImageView()
                 VStack(alignment: .leading){
@@ -44,15 +45,16 @@ struct PostRow: View {
             }
             HStack {
                 Spacer()
-                PostRowButton(buttonImage: "bubble.left", count: post.commentsNum)
+                PostRowButton(buttonImage: "bubble.left", count: post.commentsNum, post: post)
                 Spacer()
-                PostRowButton(buttonImage: "return", count: 0)
+                PostRowButton(buttonImage: "return", count: 0,post: post)
                 Spacer()
-                PostRowButton(buttonImage: "suit.heart", count: post.likesNum)
+                PostRowButton(buttonImage: "suit.heart", count: post.likesNum, post: post)
                 Spacer()
             }
             .padding(.top, 2)
             .padding(.bottom, 5)
         }
+      }
     }
 }

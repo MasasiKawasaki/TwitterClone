@@ -17,7 +17,11 @@ struct Post: Identifiable {
     var commentsNum: Int
     var likesNum: Int
     var postImage: String
-    init(id: String, text: String, username: String, tag: String, commentsNum: Int, likesNum: Int, postImage: String) {
+    var documentId: String
+    
+    
+    init(id: String, text: String, username: String, tag: String, commentsNum: Int, likesNum: Int,
+         postImage: String, documentId: String = "") {
            self.id = id
            self.text = text
            self.username = username
@@ -25,6 +29,7 @@ struct Post: Identifiable {
            self.commentsNum = commentsNum
            self.likesNum = likesNum
            self.postImage = postImage
+           self.documentId = documentId
     }
 }
 

@@ -24,10 +24,16 @@ struct Constants {
     static let text = "text"
     static let username = "username"
     static let tag = "tag"
-    static let likesNume = "likesNum"
-    static let commentsNume = "commentsNum"
+    static let likesNum = "likesNum"
+    static let commentsNum = "commentsNum"
     static let postImage = "postImage"
     
     static let pics = "pics"
     
+    static let comments = "comments"
+//    頭にCをつけるのはコメントコレクションの中のものだから
+    static let cId = "id"
+    static let cUserId = "userId"
+    static let cUserName = "userName"
+    static let cComment = "comment"
 }

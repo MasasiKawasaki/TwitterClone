@@ -32,17 +32,18 @@ class PostStore: ObservableObject{
                         guard let _text = data[Constants.text] as? String else {return}
                         guard let _username = data[Constants.username] as? String else {return}
                         guard let _tag = data[Constants.tag] as? String else {return}
-                        guard let _likesNum = data[Constants.likesNume] as? Int else {return}
-                        guard let _commentsNum = data[Constants.commentsNume] as? Int else{return}
+                        guard let _commentsNum = data[Constants.commentsNum] as? Int else{return}
+                        guard let _likesNum = data[Constants.likesNum] as? Int else {return}
                         guard let _postImage = data[Constants.postImage] as? String else{return}
                         
-                        let post = Post(id: _id, text: _text, username: _username, tag: _tag, commentsNum: _commentsNum, likesNum: _likesNum, postImage: _postImage)
+                        let _documentId = diff.document.documentID
+                        let post = Post(id: _id, text: _text, username: _username, tag: _tag, commentsNum: _commentsNum, likesNum: _likesNum, postImage: _postImage, documentId: _documentId)
                             
 //                            Postの順番に作らないといけない
 //                            if let を使うときなどに＿を使う
-                        DispatchQueue.main.async{
+//                        DispatchQueue.main.async{
                             self.posts.append(post)
-                        }
+//                        }
                         }
                         }
                 }
@@ -51,6 +52,7 @@ class PostStore: ObservableObject{
         
     }
 }
+    
    func post(post: Post) {
            
        db.collection(Constants.posts).document().setData([
@@ -58,8 +60,8 @@ class PostStore: ObservableObject{
            Constants.text: post.text,
            Constants.username: post.username,
            Constants.tag: post.tag,
-           Constants.commentsNume: post.commentsNum,
-           Constants.likesNume: post.likesNum,
+           Constants.commentsNum: post.commentsNum,
+           Constants.likesNum: post.likesNum,
            Constants.postImage: post.postImage
        ]) { (error) in
            if error != nil {
@@ -93,4 +95,17 @@ class PostStore: ObservableObject{
             completion((""))
         }
     }
+    
+    func updateLikes(documentId: String, likesNum: Int) {
+        db.collection(Constants.posts).document(documentId).updateData([
+            Constants.likesNum: likesNum + 1
+        ]) { err in
+            if let err = err {
+                print("Error updating document: \(err)")
+            } else {
+                print("Document successfully updated")
+            }
+        }
+    }
+    
 }

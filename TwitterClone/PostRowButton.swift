@@ -12,6 +12,8 @@ struct PostRowButton: View {
     var buttonImage: String
     var count: Int
     
+    var post: Post
+    @ObservedObject var  postStore = PostStore()
     var body: some View {
         HStack(alignment: .center){
             Button(action:{
@@ -21,6 +23,7 @@ struct PostRowButton: View {
                     print("✊リツイートボタンタップ")
                 } else {
                     print("✋いいねボタンタップ")
+                    self.postStore.updateLikes(documentId: self.post.documentId, likesNum: self.post.likesNum)
                 }
             })
             { Image(systemName: buttonImage)
@@ -33,8 +36,8 @@ struct PostRowButton: View {
     }
 }
 
-struct PostRowButton_Previews: PreviewProvider {
-    static var previews: some View {
-        PostRowButton(buttonImage: "square.and.arrow.up", count: 18)
-    }
-}
+//struct PostRowButton_Previews: PreviewProvider {
+//    static var previews: some View {
+//        PostRowButton(buttonImage: "square.and.arrow.up", count: 18)
+//    }
+//}
