@@ -10,8 +10,8 @@ import SwiftUI
 
 struct MenuView: View {
     
-    @ObservedObject var userState = UserState
-
+    @ObservedObject var userState : UserState
+  @EnvironmentObject var userStore: UserStore
 
     var body: some View {
         
@@ -47,7 +47,9 @@ struct MenuView: View {
 
 
 struct HeaderMenu: View {
-        @EnvironmentObject var userStore: UserStore
+    
+    @EnvironmentObject var userStore: UserStore
+    
     var body: some View{
         
         VStack(alignment: .leading){

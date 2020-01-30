@@ -29,6 +29,13 @@ class UserStore : ObservableObject{
         }
     }
     
+    func unbind() {
+        if let handle = handle {
+            Auth.auth().removeStateDidChangeListener(handle)
+        }
+    }
+    
+    
     func signUp(
         email: String,
         password: String,
