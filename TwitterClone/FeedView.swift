@@ -14,6 +14,9 @@ struct FeedView: View {
     
     @ObservedObject var postStore = PostStore()
     @State private var showModal = false
+    
+    @ObservedObject var userState = UserState()
+    
     var body: some View {
         NavigationView{
             ZStack{
@@ -39,12 +42,21 @@ struct FeedView: View {
                 }
             }
             .navigationBarTitle("Home")
-            .navigationBarItems(trailing: Button(action: {
-                print("ログアウトメソッド")
-                self.userStore.signOut()
-            }) {
-                Text("Sign Out")
+            .navigationBarItems(leading:
+            Button(action: {
+                print("Menu Open")
+            self.userState.isMenuOpen.toggle()
             })
+                {
+                    Text("Menu")
+                }
+            )
+//            .navigationBarItems(trailing: Button(action: {
+//                print("ログアウトメソッド")
+//                self.userStore.signOut()
+//            }) {
+//                Text("Sign Out")
+//            })
         }.sheet(isPresented: self.$showModal){
             CreatePost()
             .environmentObject(self.userStore)

@@ -31,7 +31,7 @@ struct CommentView: View {
                             print("コメント投稿されました")
                             if self.newComment.isEmpty {
                             self.isError.toggle()
-                            self.errorText = "コメントが入力されていません"
+                            self.errorText = "コメントが入力してください!"
                             }
                            let comment = Comment(id: NSUUID().uuidString, comment: self.newComment, userId: self.userStore.user?.uid ?? "", userName: self.userStore.user?.displayname ?? "")
                             self.commentStore.postComment(documentId: self.post.documentId, comment: comment)
@@ -54,7 +54,6 @@ struct CommentView: View {
                 self.commentStore.comments.removeAll()
                 self.commentStore.fetchComments(documentId: self.post.documentId)
             }
-            
         })
         .alert(isPresented: $isError, content: {
             Alert(title: Text("エラー"), message: Text(self.errorText), dismissButton: .default(Text("OK")))

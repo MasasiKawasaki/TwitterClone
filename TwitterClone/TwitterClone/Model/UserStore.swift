@@ -60,10 +60,27 @@ class UserStore : ObservableObject{
         db.collection(Constants.users).document(user.uid).setData([
             Constants.userId: user.uid,
             Constants.email: user.email,
-            Constants.name: user.displayname,
+            Constants.name: user.displayname
         ])
     }
     
-
-    
+    func getUser(completion: @escaping (User) -> Void) {
+        db.collection(Constants.users).document(user?.uid ?? "")
+        .getDocument { (document, error)in
+            if let document = document, document.exists{
+                let data = document.data()
+                print("document data: \(String(describing: data))")
+                guard let _userId = data?[Constants.userId] as? String else{return}
+                guard let _username = data?[Constants.username] as? String else{return}
+                guard let _email = data?[Constants.email] as? String else{return}
+                
+                let user = User(uid: _userId, displayName: _username, email: _email)
+                
+                self.user = user
+                completion(self.user!)
+            } else{
+                print("Document does not exist")
+            }
+        }
+    }
 }

@@ -27,7 +27,7 @@ struct Constants {
     static let likesNum = "likesNum"
     static let commentsNum = "commentsNum"
     static let postImage = "postImage"
-    
+    static let timestamp = "timestamp"
     static let pics = "pics"
     
     static let comments = "comments"
@@ -36,4 +36,6 @@ struct Constants {
     static let cUserId = "userId"
     static let cUserName = "userName"
     static let cComment = "comment"
+    
+    
 }

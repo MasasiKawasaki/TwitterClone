@@ -19,7 +19,8 @@ class PostStore: ObservableObject{
 //    これからまだ入るデータがあるからPostで定義する
     
     func fetch(){
-        db.collection(Constants.posts).addSnapshotListener()
+        db.collection(Constants.posts).order(by: Constants.timestamp, descending: true)
+            .addSnapshotListener()
             {  (querySnapshot, error)
                 in
                 if let _error = error {print("Error getting docs:\(_error)")
@@ -35,9 +36,11 @@ class PostStore: ObservableObject{
                         guard let _commentsNum = data[Constants.commentsNum] as? Int else{return}
                         guard let _likesNum = data[Constants.likesNum] as? Int else {return}
                         guard let _postImage = data[Constants.postImage] as? String else{return}
+                        guard let _timestamp = data[Constants.timestamp] as? Timestamp else {return}
                         
+                        let _date = _timestamp.dateValue()
                         let _documentId = diff.document.documentID
-                        let post = Post(id: _id, text: _text, username: _username, tag: _tag, commentsNum: _commentsNum, likesNum: _likesNum, postImage: _postImage, documentId: _documentId)
+                        let post = Post(id: _id, text: _text, username: _username, tag: _tag, commentsNum: _commentsNum, likesNum: _likesNum, postImage: _postImage, documentId: _documentId, timestamp: _date)
                             
 //                            Postの順番に作らないといけない
 //                            if let を使うときなどに＿を使う
@@ -62,7 +65,8 @@ class PostStore: ObservableObject{
            Constants.tag: post.tag,
            Constants.commentsNum: post.commentsNum,
            Constants.likesNum: post.likesNum,
-           Constants.postImage: post.postImage
+           Constants.postImage: post.postImage,
+           Constants.timestamp: post.timestamp
        ]) { (error) in
            if error != nil {
                print(error?.localizedDescription ?? "")
@@ -104,6 +108,16 @@ class PostStore: ObservableObject{
                 print("Error updating document: \(err)")
             } else {
                 print("Document successfully updated")
+            }
+        }
+    }
+    
+    func delete(documentId: String){
+        db.collection(Constants.posts).document(documentId).delete() {
+            err in  if let err = err{
+                print("Error removing document: \(err)")
+            } else{
+                print("Document successfully removed!")
             }
         }
     }

@@ -37,12 +37,14 @@ struct CreatePost: View {
             }
             Button(action: {
                     print("投稿ボタンタップ")
+                self.userStore.getUser() { user in
+                    print(user)
+                    }
                     self.postStore.uploadToStorage(picData: self.picData) { url in
-                    let post = Post(id: NSUUID().uuidString, text: self.txt, username: "G's seattle", tag: self.userStore.user?.uid ?? "", commentsNum: 5, likesNum: 32, postImage: url)
+                    let post = Post(id: NSUUID().uuidString, text: self.txt, username: "G's seattle", tag: self.userStore.user?.uid ?? "", commentsNum: 5, likesNum: 32, postImage: url, timestamp: Date())
 //                   \は文字列の中に変数を入れるとき
-                    self.postStore.post(post: post)
-                    
-                }
+                    self.postStore.post(post: post) }
+               
                 self.presentationMode.wrappedValue.dismiss()
                 }) {
                     Text("Tweet")

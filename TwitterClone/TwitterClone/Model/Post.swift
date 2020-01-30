@@ -10,18 +10,18 @@ import SwiftUI
 
 struct Post: Identifiable {
     
-    var id : String
-    var text : String
+    var id: String
+    var text: String
     var username: String
     var tag: String
     var commentsNum: Int
     var likesNum: Int
     var postImage: String
     var documentId: String
-    
+    var timestamp: Date
     
     init(id: String, text: String, username: String, tag: String, commentsNum: Int, likesNum: Int,
-         postImage: String, documentId: String = "") {
+         postImage: String, documentId: String = "", timestamp: Date) {
            self.id = id
            self.text = text
            self.username = username
@@ -30,6 +30,7 @@ struct Post: Identifiable {
            self.likesNum = likesNum
            self.postImage = postImage
            self.documentId = documentId
+           self.timestamp = timestamp
     }
 }
 
