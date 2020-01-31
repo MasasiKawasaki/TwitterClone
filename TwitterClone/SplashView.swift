@@ -25,7 +25,7 @@ struct SplashView: View {
                 LoginView()
             }
         }.onAppear(perform: getUser)
-//        .onDisappear(perform: userStore.unbind)
+        .onDisappear(perform: userStore.unbind)
     }
 }
 

@@ -11,7 +11,7 @@ import SwiftUI
 struct MenuView: View {
     
     @ObservedObject var userState : UserState
-  @EnvironmentObject var userStore: UserStore
+    @EnvironmentObject var userStore: UserStore
 
     var body: some View {
         
