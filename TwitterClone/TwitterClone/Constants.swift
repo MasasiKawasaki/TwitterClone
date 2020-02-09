@@ -37,5 +37,4 @@ struct Constants {
     static let cUserName = "userName"
     static let cComment = "comment"
     
-    
 }
